@@ -1,3 +1,3 @@
-# wheels
+# Wheels
 
-This my small library of utilities where I most likely  reinvent wheels
+<span style="font-family:monospaced;">This is my little utility library where I most likely reinvent the wheels and try to meet the [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines) requirements.</span>
