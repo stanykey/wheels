@@ -14,8 +14,8 @@ namespace wheels {
             std::string trash;
             trash.reserve(random::random(5, 25));
             std::generate_n(std::back_inserter(trash), trash.capacity(), [&] {
-                static std::string const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_1234567890";
-                auto const it = random::random_select(std::cbegin(charset), std::cend(charset));
+                static const std::string charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_1234567890";
+                const auto it = random::random_select(std::cbegin(charset), std::cend(charset));
                 return *it;
             });
 
