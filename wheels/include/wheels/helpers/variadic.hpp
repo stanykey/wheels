@@ -1,5 +1,5 @@
-#ifndef WHEELS_VARIADIC_HPP
-#define WHEELS_VARIADIC_HPP
+#ifndef WHEELS_HELPERS_VARIADIC_HPP
+#define WHEELS_HELPERS_VARIADIC_HPP
 
 #include <tuple>
 #include <utility>
@@ -43,4 +43,4 @@ namespace wheels {
     }
 }
 
-#endif //WHEELS_VARIADIC_HPP
+#endif //WHEELS_HELPERS_VARIADIC_HPP

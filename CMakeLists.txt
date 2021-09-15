@@ -1,5 +1,10 @@
-cmake_minimum_required(VERSION "3.17")
+cmake_minimum_required(VERSION 3.17)
 
 project(wheels)
 
-add_subdirectory(runner)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_subdirectory(wheels)
+add_subdirectory(test-runner)
