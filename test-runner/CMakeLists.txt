@@ -8,4 +8,4 @@ include_directories("../wheels/tests")
 add_executable(test-runner)
 
 target_sources(test-runner PRIVATE runner.cpp)
-
+target_link_libraries(test-runner PRIVATE wheels)
