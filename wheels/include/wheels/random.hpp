@@ -3,4 +3,4 @@
 
 #include <wheels/random/random.hpp>
 
-#endif //WHEELS_RANDOM_HPP
+#endif  // WHEELS_RANDOM_HPP
