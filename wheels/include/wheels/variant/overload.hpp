@@ -11,6 +11,6 @@ namespace wheels {
 
     template<class... Ts>
     overload(Ts...) -> overload<Ts...>;
-}
+}  // namespace wheels
 
-#endif //WHEELS_VARIANT_OVERLOAD_HPP
+#endif  // WHEELS_VARIANT_OVERLOAD_HPP
