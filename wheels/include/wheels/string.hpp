@@ -2,6 +2,7 @@
 #define WHEELS_STRING_HPP
 
 #include <wheels/string/constexpr.hpp>
+#include <wheels/string/hash.hpp>
 #include <wheels/string/trash.hpp>
 
 

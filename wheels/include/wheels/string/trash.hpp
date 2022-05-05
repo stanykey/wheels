@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iterator>
 #include <string>
+#include <string_view>
 
 
 namespace wheels::string {
@@ -16,10 +17,12 @@ namespace wheels::string {
         std::string trash;
         trash.reserve(random::random(min_size, max_size));
         std::generate_n(std::back_inserter(trash), trash.capacity(), [&] {
-            static const std::string charset =
-                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_1234567890";
-            const auto it = random::random_select(std::cbegin(charset), std::cend(charset));
-            return *it;
+            static constexpr std::string_view charset = "abcdefghijklmnopqrstuvwxyz"
+                                                        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                                        "!@#$%^&*()_"
+                                                        "1234567890";
+            const auto choice = random::random_select(charset.cbegin(), charset.cend());
+            return *choice;
         });
 
         return trash;
