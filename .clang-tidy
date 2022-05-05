@@ -1,0 +1,53 @@
+---
+Checks: >
+  *,
+  bugpron-*,
+    -bugprone-easily-swappable-parameters,
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  cppcoreguidelines-*,
+      -cppcoreguidelines-pro-bounds-constant-array-index,
+  modernize-*,
+      -modernize-use-trailing-return-type,
+  misc-*,
+      -misc-non-private-member-variables-in-classes,
+      -misc-definitions-in-headers,
+      -misc-no-recursion,
+      -misc-static-assert,
+      -misc-unused-alias-decls,
+  readability-*,
+    -readability-braces-around-statements,
+    -readability-convert-member-functions-to-static,
+    -readability-else-after-return,
+    -readability-function-cognitive-complexity,
+    -readability-identifier-length,
+    -readability-function-size,
+    -readability-magic-numbers,
+    -readability-make-member-function-const,
+    -readability-misleading-indentation,
+    -readability-named-parameter,
+    -readability-qualified-auto,
+    -readability-redundant-access-specifiers,
+    -readability-redundant-declaration,
+    -readability-static-accessed-through-instance,
+    -readability-uppercase-literal-suffix,
+  altera-*,
+      -altera-unroll-loops,
+      -altera-id-dependent-backward-branch,
+      -altera-struct-pack-align,
+  zircon-*,
+  google-*,
+  fuchsia-*,
+      -fuchsia-default-arguments-calls,
+      -fuchsia-overloaded-operator,
+      -fuchsia-trailing-return,
+  -llvm-*,
+  -llvmlibc-*,
+
+WarningsAsErrors: '*'
+HeaderFilterRegex: ''
+AnalyzeTemporaryDtors: false
+
+FormatStyle: file
+
+...
