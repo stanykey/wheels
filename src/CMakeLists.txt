@@ -19,3 +19,5 @@ add_library(wheels INTERFACE)
 target_sources(wheels INTERFACE "$<BUILD_INTERFACE:${header_files}>")
 target_include_directories(wheels INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/>)
 target_include_directories(wheels SYSTEM INTERFACE $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include>)
+
+add_library(wheels::wheels ALIAS wheels)

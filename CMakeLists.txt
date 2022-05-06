@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.17)
 
-
+# C++ settings
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 
+# Toolchain
 option(USE_VCPKG "Use Vcpkg as toolchain" YES)
 if (USE_VCPKG)
     if (DEFINED ENV{VCPKG_ROOT})
@@ -16,6 +17,7 @@ if (USE_VCPKG)
 endif()
 
 
+# Static analysis
 option(ENABLE_CLANG_TIDY "Enable static analysis with clang-tidy" YES)
 if (ENABLE_CLANG_TIDY)
     find_program(CLANGTIDY clang-tidy)
@@ -27,10 +29,13 @@ if (ENABLE_CLANG_TIDY)
 endif()
 
 
-project(wheels)
+# Project configuration
+project(wheels CXX)
 
 add_subdirectory(src)
 
+
+# Testing
 option(ENABLE_TESTING "Enable Test Builds" ON)
 if (ENABLE_TESTING)
     add_subdirectory(tests)
