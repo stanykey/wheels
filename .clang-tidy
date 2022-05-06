@@ -4,6 +4,7 @@ Checks: >
     bugpron-*,
         -bugprone-easily-swappable-parameters,
     clang-diagnostic-*,
+        -clang-diagnostic-unused-command-line-argument,
     clang-analyzer-*,
     readability-*,
         -readability-named-parameter,
@@ -42,7 +43,7 @@ Checks: >
     
 
 WarningsAsErrors: '*'
-HeaderFilterRegex: 'wheels/include/wheels/'
+HeaderFilterRegex: 'src/wheels/'
 AnalyzeTemporaryDtors: false
 
 FormatStyle: file
