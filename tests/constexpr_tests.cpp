@@ -1,14 +1,27 @@
 #include <catch2/catch.hpp>
 
+#include <wheels/bits.hpp>
 
-constexpr unsigned int factorial(unsigned int number) {
-    return number <= 1 ? number : factorial(number - 1) * number;
+
+TEST_CASE("Single bits operations with constexpr", "[bits]") {
+    constexpr std::uint64_t zero{0};
+
+    STATIC_REQUIRE(!wheels::bits::check_bit(zero, 0));
+
+    constexpr std::uint32_t five = 0b101;
+    STATIC_REQUIRE(five == 5);
+    STATIC_REQUIRE(wheels::bits::check_bit(five, 0));
+    STATIC_REQUIRE(wheels::bits::check_bit(five, 2));
 }
 
+TEST_CASE("Bit mask operations with constexpr", "[bits]") {
+    constexpr std::uint64_t mask = 0b101;
+    constexpr std::uint64_t four = 4;
+    constexpr std::uint64_t five = 5;
 
-TEST_CASE("Factorials are computed with constexpr", "[factorial]") {
-    STATIC_REQUIRE(factorial(1) == 1);
-    STATIC_REQUIRE(factorial(2) == 2);
-    STATIC_REQUIRE(factorial(3) == 6);
-    STATIC_REQUIRE(factorial(10) == 3628800);
+    STATIC_REQUIRE(!wheels::bits::check_mask_all(four, mask));
+    STATIC_REQUIRE(wheels::bits::check_mask_all(five, mask));
+
+    STATIC_REQUIRE(wheels::bits::check_mask_any(four, mask));
+    STATIC_REQUIRE(wheels::bits::check_mask_any(five, mask));
 }
