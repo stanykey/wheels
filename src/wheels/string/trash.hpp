@@ -1,7 +1,7 @@
 #ifndef WHEELS_STRING_TRASH_HPP
 #define WHEELS_STRING_TRASH_HPP
 
-#include <wheels/random/random.hpp>
+#include "../random/random.hpp"
 
 #include <algorithm>
 #include <iterator>
