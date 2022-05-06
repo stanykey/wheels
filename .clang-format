@@ -72,9 +72,12 @@ IncludeBlocks: Regroup
 IncludeCategories:
   # Headers in <> without extension.
   - Regex: '<([A-Za-z0-9\Q/-_\E])+>'
-    Priority: 2
+    Priority: 3
   # Headers in <> from other specific external libraries.
   - Regex: '<(wheels)'
+    Priority: 2
+  # Headers in <> from other specific external libraries.
+  - Regex: '<(catch)'
     Priority: 1
 
 CommentPragmas: '^ IWYU pragma:'
