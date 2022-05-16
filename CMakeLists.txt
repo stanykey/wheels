@@ -38,5 +38,6 @@ add_subdirectory(src)
 # Testing
 option(ENABLE_TESTING "Enable Test Builds" ON)
 if (ENABLE_TESTING)
+    enable_testing()
     add_subdirectory(tests)
 endif()
