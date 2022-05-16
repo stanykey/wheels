@@ -2,7 +2,7 @@ Language: Cpp
 Standard: c++20
 TabWidth: 4
 UseTab: Never
-ColumnLimit: 100
+ColumnLimit: 125
 
 IndentWidth: 4
 IndentRequires: true
@@ -13,8 +13,8 @@ ConstructorInitializerIndentWidth: 4
 ContinuationIndentWidth: 4
 AccessModifierOffset: -4
 
-BinPackArguments: false
-BinPackParameters: false
+BinPackArguments: true
+BinPackParameters: true
 AlignAfterOpenBracket: BlockIndent
 
 AlignConsecutiveAssignments: Consecutive
@@ -26,7 +26,7 @@ AlignTrailingComments: true
 AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortBlocksOnASingleLine: Empty
 AllowShortCaseLabelsOnASingleLine: true
-AllowShortFunctionsOnASingleLine: None
+AllowShortFunctionsOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 AllowShortLoopsOnASingleLine: true
 AlwaysBreakBeforeMultilineStrings: false
@@ -70,13 +70,13 @@ SortUsingDeclarations: true
 SortIncludes: CaseSensitive
 IncludeBlocks: Regroup
 IncludeCategories:
-  # Headers in <> without extension.
+  # built-in
   - Regex: '<([A-Za-z0-9\Q/-_\E])+>'
     Priority: 3
-  # Headers in <> from other specific external libraries.
+  # it's we
   - Regex: '<(wheels)'
     Priority: 2
-  # Headers in <> from other specific external libraries.
+  # testing
   - Regex: '<(catch)'
     Priority: 1
 

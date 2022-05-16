@@ -3,6 +3,7 @@
 set(header_files
     ${CMAKE_CURRENT_SOURCE_DIR}/wheels/bits.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/wheels/bits/operations.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/wheels/bits/bitset.hpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/wheels/helpers.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/wheels/helpers/fallback.hpp

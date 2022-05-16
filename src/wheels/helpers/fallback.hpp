@@ -11,9 +11,8 @@ namespace wheels {
 
     template<typename Predicate, typename T, typename... Ts>
     auto&& fallback(Predicate&& is_invalid, T&& value, Ts&&... fallbacks) {
-        return !is_invalid(value)
-                 ? std::forward<T>(value)
-                 : fallback(std::forward<Predicate>(is_invalid), std::forward<Ts>(fallbacks)...);
+        return !is_invalid(value) ? std::forward<T>(value)
+                                  : fallback(std::forward<Predicate>(is_invalid), std::forward<Ts>(fallbacks)...);
     }
 }  // namespace wheels
 

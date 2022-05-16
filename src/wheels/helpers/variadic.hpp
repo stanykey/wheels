@@ -7,8 +7,7 @@
 namespace wheels {
     template<typename Callable, class... Args>
     void for_each_argument(Callable&& call_for, Args&&... args) {
-        return static_cast<void>(std::initializer_list<int>{
-            (call_for(std::forward<Args>(args)), 0)...});
+        return static_cast<void>(std::initializer_list<int>{(call_for(std::forward<Args>(args)), 0)...});
     }
 
     namespace details {
@@ -20,18 +19,14 @@ namespace wheels {
         template<typename Callable, class Tuple>
         decltype(auto) apply(Callable&& call_for, Tuple&& tuple) {
             using Indices = std::make_index_sequence<std::tuple_size<std::decay_t<Tuple>>::value>;
-            return apply_impl(
-                std::forward<Callable>(call_for), std::forward<Tuple>(tuple), Indices{}
-            );
+            return apply_impl(std::forward<Callable>(call_for), std::forward<Tuple>(tuple), Indices{});
         }
     }  // namespace details
 
     template<typename Callable, class Tuple>
     void for_tuple(Callable&& call_for, Tuple&& tuple) {
         details::apply(
-            [&call_for](auto&&... xs) {
-                for_each_argument(call_for, std::forward<decltype(xs)>(xs)...);
-            },
+            [&call_for](auto&&... xs) { for_each_argument(call_for, std::forward<decltype(xs)>(xs)...); },
             std::forward<Tuple>(tuple)
         );
     }
