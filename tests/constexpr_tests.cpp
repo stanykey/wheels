@@ -1,6 +1,7 @@
 #include <catch2/catch.hpp>
 
 #include <wheels/bits.hpp>
+#include <wheels/string.hpp>
 
 
 TEST_CASE("Single bits operations with constexpr", "[bits]") {
@@ -24,4 +25,14 @@ TEST_CASE("Bit mask operations with constexpr", "[bits]") {
 
     STATIC_REQUIRE(wheels::bits::check_mask_any(four, mask));
     STATIC_REQUIRE(wheels::bits::check_mask_any(five, mask));
+}
+
+TEST_CASE("String hash", "[hash]") {
+    STATIC_REQUIRE(wheels::string::hash("one") == wheels::string::hash("one"));
+    STATIC_REQUIRE(wheels::string::hash("one") != wheels::string::hash("ONE"));
+    STATIC_REQUIRE(wheels::string::hash("one") == wheels::string::hash(std::string_view{"one"}));
+
+    STATIC_REQUIRE(wheels::string::hash(L"one") == wheels::string::hash(L"one"));
+    STATIC_REQUIRE(wheels::string::hash(L"one") != wheels::string::hash(L"ONE"));
+    STATIC_REQUIRE(wheels::string::hash(L"one") == wheels::string::hash(std::wstring_view{L"one"}));
 }
