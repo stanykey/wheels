@@ -10,17 +10,15 @@
 
 
 namespace wheels::string {
-    std::string make_trash() {
-        static constexpr std::size_t      MinSize = 5;
-        static constexpr std::size_t      MaxSize = 25;
-        static constexpr std::string_view Charset = "abcdefghijklmnopqrstuvwxyz"
-                                                    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                                    "!@#$%^&*()_1234567890";
+    constexpr std::string_view get_default_charset() {
+        return {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_1234567890"};
+    }
 
+    std::string make_trash(std::size_t length, std::string_view charset = get_default_charset()) {
         std::string trash;
-        trash.reserve(random::random(MinSize, MaxSize));
-        std::generate_n(std::back_inserter(trash), trash.capacity(), [&] {
-            const auto choice = random::random_select(Charset.cbegin(), Charset.cend());
+        trash.reserve(length);
+        std::generate_n(std::back_inserter(trash), length, [charset] {
+            const auto choice = random::random_select(charset.cbegin(), charset.cend());
             return *choice;
         });
 
