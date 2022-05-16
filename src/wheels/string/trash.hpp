@@ -11,16 +11,16 @@
 
 namespace wheels::string {
     std::string make_trash() {
-        static constexpr std::size_t      min_size = 5;
-        static constexpr std::size_t      max_size = 25;
-        static constexpr std::string_view charset  = "abcdefghijklmnopqrstuvwxyz"
-                                                     "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                                     "!@#$%^&*()_1234567890";
+        static constexpr std::size_t      MinSize = 5;
+        static constexpr std::size_t      MaxSize = 25;
+        static constexpr std::string_view Charset = "abcdefghijklmnopqrstuvwxyz"
+                                                    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                                    "!@#$%^&*()_1234567890";
 
         std::string trash;
-        trash.reserve(random::random(min_size, max_size));
+        trash.reserve(random::random(MinSize, MaxSize));
         std::generate_n(std::back_inserter(trash), trash.capacity(), [&] {
-            const auto choice = random::random_select(charset.cbegin(), charset.cend());
+            const auto choice = random::random_select(Charset.cbegin(), Charset.cend());
             return *choice;
         });
 

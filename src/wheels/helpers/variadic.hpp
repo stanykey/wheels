@@ -18,8 +18,8 @@ namespace wheels {
 
         template<typename Callable, class Tuple>
         decltype(auto) apply(Callable&& call_for, Tuple&& tuple) {
-            using Indices = std::make_index_sequence<std::tuple_size<std::decay_t<Tuple>>::value>;
-            return apply_impl(std::forward<Callable>(call_for), std::forward<Tuple>(tuple), Indices{});
+            using indices_t = std::make_index_sequence<std::tuple_size<std::decay_t<Tuple>>::value>;
+            return apply_impl(std::forward<Callable>(call_for), std::forward<Tuple>(tuple), indices_t{});
         }
     }  // namespace details
 
