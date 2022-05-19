@@ -2,11 +2,15 @@ find_package(Catch2 CONFIG REQUIRED)
 
 include(Catch)
 
-add_library(catch_main STATIC catch_main.cpp)
-target_link_libraries(catch_main PUBLIC Catch2::Catch2 wheels::dev)
+add_library(wheels_test_base INTERFACE)
+target_link_libraries(wheels_test_base INTERFACE
+    Catch2::Catch2
+    Catch2::Catch2WithMain
+    wheels::dev
+)
 
 function(register_tests executable test_prefix)
-    target_link_libraries(${executable} PRIVATE catch_main)
+    target_link_libraries(${executable} PRIVATE wheels_test_base)
 
     catch_discover_tests(
         ${executable}
