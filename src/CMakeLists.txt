@@ -3,7 +3,6 @@ get_filename_component(include_dir ${CMAKE_CURRENT_SOURCE_DIR}/wheels ABSOLUTE)
 set(header_files
     ${include_dir}/bits.hpp
     ${include_dir}/bits/operations.hpp
-    ${include_dir}/bits/bitset.hpp
 
     ${include_dir}/helpers.hpp
     ${include_dir}/helpers/fallback.hpp
@@ -105,6 +104,11 @@ else()
 
     # warnings are treated as errors
     target_compile_options(wheels_dev INTERFACE -Werror)
+endif()
+
+if(${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
+    # MSVC requests to capture const(expr) variables in any case
+    target_compile_options(wheels_dev INTERFACE -Wno-unused-lambda-capture)
 endif()
 
 # Umbrella target with all components.

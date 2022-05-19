@@ -13,17 +13,17 @@ namespace wheels::bits {
 
     template<typename Integer>
     void set_bit(Integer& number, const std::uint8_t bit) noexcept {
-        number |= (Integer{1} << bit);
+        number |= static_cast<Integer>(Integer{1} << bit);
     }
 
     template<typename Integer>
     void clear_bit(Integer& number, const std::uint8_t bit) noexcept {
-        number &= ~(Integer{1} << bit);
+        number &= static_cast<Integer>(~(Integer{1} << bit));
     }
 
     template<typename Integer>
     void flip_bit(Integer& number, const std::uint8_t bit) noexcept {
-        number ^= (Integer{1} << bit);
+        number ^= static_cast<Integer>(Integer{1} << bit);
     }
 
 

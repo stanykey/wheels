@@ -17,7 +17,7 @@ namespace wheels::string {
 
         hash_type hash_value = fnv_basis;
         for (auto symbol : str) {
-            hash_value ^= symbol;
+            hash_value ^= static_cast<hash_type>(symbol);
             hash_value *= fnv_prime;
         }
 

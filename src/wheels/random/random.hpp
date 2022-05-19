@@ -26,7 +26,8 @@ namespace wheels::random {
 
     template<typename Iter, typename RandomGenerator>
     Iter random_select(Iter first, Iter last, RandomGenerator& generator) {
-        std::uniform_int_distribution<std::size_t> distribution(0, std::distance(first, last) - 1);
+        const std::size_t max_value = static_cast<std::size_t>(std::distance(first, last)) - 1;
+        std::uniform_int_distribution<std::size_t> distribution(0, max_value);
         std::advance(first, distribution(generator));
         return first;
     }

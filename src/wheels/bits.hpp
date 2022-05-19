@@ -1,7 +1,7 @@
 #ifndef WHEELS_BITS_HPP
 #define WHEELS_BITS_HPP
 
-#include <wheels/bits/bitset.hpp>
+#include <wheels/bits/operations.hpp>
 
 
 #endif  // WHEELS_BITS_HPP
