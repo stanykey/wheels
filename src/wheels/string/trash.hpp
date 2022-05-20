@@ -24,6 +24,7 @@ namespace wheels::string {
 
         return trash;
     }
+
 }  // namespace wheels::string
 
 

@@ -27,6 +27,7 @@ namespace wheels::random {
     template<typename Iter, typename RandomGenerator>
     Iter random_select(Iter first, Iter last, RandomGenerator& generator) {
         const std::size_t max_value = static_cast<std::size_t>(std::distance(first, last)) - 1;
+
         std::uniform_int_distribution<std::size_t> distribution(0, max_value);
         std::advance(first, distribution(generator));
         return first;
@@ -38,6 +39,7 @@ namespace wheels::random {
         static std::mt19937       generator(rand_device());
         return random_select(first, last, generator);
     }
+
 }  // namespace wheels::random
 
 #endif  // WHEELS_RANDOM_RANDOM_HPP

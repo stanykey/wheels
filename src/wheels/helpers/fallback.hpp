@@ -3,6 +3,7 @@
 
 #include <utility>
 
+
 namespace wheels {
     template<typename Predicate, typename T>
     auto&& fallback(Predicate&&, T&& value) {
@@ -14,6 +15,7 @@ namespace wheels {
         return !is_invalid(value) ? std::forward<T>(value)
                                   : fallback(std::forward<Predicate>(is_invalid), std::forward<Ts>(fallbacks)...);
     }
+
 }  // namespace wheels
 
 #endif  // WHEELS_HELPERS_FALLBACK_HPP

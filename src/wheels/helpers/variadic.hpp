@@ -4,6 +4,7 @@
 #include <tuple>
 #include <utility>
 
+
 namespace wheels {
     template<typename Callable, class... Args>
     void for_each_argument(Callable&& call_for, Args&&... args) {
@@ -30,6 +31,7 @@ namespace wheels {
             std::forward<Tuple>(tuple)
         );
     }
+
 }  // namespace wheels
 
 #endif  // WHEELS_HELPERS_VARIADIC_HPP
