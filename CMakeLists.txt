@@ -8,13 +8,20 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Toolchain must be set before defining project()
 option(USE_VCPKG "Use Vcpkg as toolchain" YES)
-if(USE_VCPKG)
+if(USE_VCPKG AND NOT CMAKE_TOOLCHAIN_FILE)
     if(DEFINED ENV{VCPKG_ROOT})
-        include($ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake)
-    else()
-        message(SEND_ERROR "vcpkg requested but VCPKG_ROOT isn't set")
-    endif()
+        set(vcpkg "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
+        if(EXISTS vcpkg)
+            set(CMAKE_TOOLCHAIN_FILE "${vcpkg}" CACHE FILEPATH "CMake toolchain file")
+            message(STATUS "vcpkg toolchain found: ${CMAKE_TOOLCHAIN_FILE}")
+            include($$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake)
+        else()
+            message(SEND_ERROR "vcpkg requested but VCPKG_ROOT isn't set")
+        endif()
+    endif ()
 endif()
+
+message(STATUS "Toolchain found: ${CMAKE_TOOLCHAIN_FILE}")
 
 
 # Project configuration
