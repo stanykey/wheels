@@ -47,7 +47,7 @@ TEST_CASE("Generation of trash strings", "[trash string]") {
         return wheels::string::make_trash(trash_size);
     });
 
-    std::set<std::string> uniques{trash.cbegin(), trash.cend()};
+    const std::set<std::string> uniques{trash.cbegin(), trash.cend()};
     REQUIRE(uniques.size() == trash.size());
     REQUIRE(wheels::random::random_select(trash.cbegin(), trash.cend())->size() == trash_size);
 }
@@ -61,7 +61,7 @@ TEST_CASE("Generation of trash strings with custom charset", "[trash string]") {
         return wheels::string::make_trash(trash_size, bad_charset);
     });
 
-    std::set<std::string> uniques{trash.cbegin(), trash.cend()};
+    const std::set<std::string> uniques{trash.cbegin(), trash.cend()};
     REQUIRE(trash.size() == trash_size);
     REQUIRE(uniques.size() == 1);
     REQUIRE(uniques.cbegin()->size() == trash_size);

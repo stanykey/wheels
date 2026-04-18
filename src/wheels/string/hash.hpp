@@ -2,6 +2,8 @@
 #define WHEELS_STRING_HASH_HPP
 
 #include <cstdint>
+#include <string>
+#include <string_view>
 
 
 namespace wheels::string {

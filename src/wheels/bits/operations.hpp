@@ -1,7 +1,7 @@
 #ifndef WHEELS_BITS_OPERATIONS_HPP
 #define WHEELS_BITS_OPERATIONS_HPP
 
-#include <limits>
+#include <cstdint>
 
 
 namespace wheels::bits {

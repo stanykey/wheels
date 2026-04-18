@@ -1,6 +1,7 @@
 #ifndef WHEELS_HELPERS_VARIADIC_HPP
 #define WHEELS_HELPERS_VARIADIC_HPP
 
+#include <initializer_list>
 #include <tuple>
 #include <utility>
 
@@ -8,7 +9,7 @@
 namespace wheels {
     template<typename Callable, class... Args>
     void for_each_argument(Callable&& call_for, Args&&... args) {
-        return static_cast<void>(std::initializer_list<int>{(call_for(std::forward<Args>(args)), 0)...});
+        static_cast<void>(std::initializer_list<int>{(call_for(std::forward<Args>(args)), 0)...});
     }
 
     namespace details {
