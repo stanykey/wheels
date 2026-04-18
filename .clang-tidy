@@ -1,7 +1,7 @@
 ---
 Checks: >
   -*,
-  bugpron-*,
+  bugprone-*,
     -bugprone-easily-swappable-parameters,
     -bugprone-exception-escape,
   clang-analyzer-*,
@@ -18,12 +18,14 @@ Checks: >
     -cppcoreguidelines-pro-bounds-pointer-arithmetic,
   modernize-*,
     -modernize-use-trailing-return-type,
+    -modernize-type-traits,
   misc-*,
     -misc-non-private-member-variables-in-classes,
     -misc-definitions-in-headers,
     -misc-no-recursion,
     -misc-static-assert,
     -misc-unused-alias-decls,
+    -misc-include-cleaner,
   hicpp-*,
     -hicpp-signed-bitwise,
     -hicpp-named-parameter,
@@ -31,8 +33,7 @@ Checks: >
 
 
 WarningsAsErrors: '*'
-HeaderFilterRegex: 'src/wheels/'
-AnalyzeTemporaryDtors: false
+HeaderFilterRegex: '^src|tests)/.*'
 
 FormatStyle: file
 
@@ -44,8 +45,6 @@ CheckOptions:
   - { key: readability-identifier-naming.FunctionCase,                  value: lower_case }
   - { key: readability-identifier-naming.TypedefCase,                   value: lower_case }
   - { key: readability-identifier-naming.TypeAliasCase,                 value: lower_case }
-  - { key: readability-identifier-naming.TemplateParameterCase,         value: CamelCase }
-  - { key: readability-identifier-naming.ValueTemplateParameterCase,    value: CamelCase }
   - { key: readability-identifier-naming.ParameterCase,                 value: lower_case }
   - { key: readability-identifier-naming.VariableCase,                  value: lower_case }
   - { key: readability-identifier-naming.StaticVariableCase,            value: lower_case }
@@ -58,5 +57,4 @@ CheckOptions:
   - { key: readability-identifier-naming.StaticConstantCase,            value: CamelCase }
   - { key: readability-identifier-naming.GlobalConstantCase,            value: UPPER_CASE }
   - { key: readability-identifier-naming.EnumConstantCase,              value: lower_case }
-
 ...
